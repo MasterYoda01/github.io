@@ -91,7 +91,22 @@ class ProjectDetailsModal extends Component {
                     style={{ marginLeft: "10px" }}
                   ></i>
                 </a>
-              ) : null}
+              ) : (
+                <div
+                  style={{
+                    backgroundColor: "#f8d7da",
+                    color: "#721c24",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    display: "inline-block",
+                    // marginLeft: "10px",
+                  }}
+                >
+                  No link to Github available – private & confidential
+                </div>
+              )}
             </h3>
             <p className="modal-description">{description}</p>
             <div className="col-md-12 text-center">

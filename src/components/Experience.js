@@ -10,10 +10,12 @@ class Experience extends Component {
   render() {
     if (this.props.resumeExperience && this.props.resumeBasicInfo) {
       var sectionName = this.props.resumeBasicInfo.section_name.experience;
+
       var work = this.props.resumeExperience.map(function (work, i) {
         const technologies = work.technologies;
         const mainTechnologies = work.mainTech;
 
+        // Create badges for main technologies
         var mainTech = mainTechnologies.map((technology, i) => {
           return (
             <Badge pill className="main-badge mr-2 mb-2" key={i}>
@@ -21,6 +23,8 @@ class Experience extends Component {
             </Badge>
           );
         });
+
+        // Create badges for other technologies
         var tech = technologies.map((technology, i) => {
           return (
             <Badge pill className="experience-badge mr-2 mb-2" key={i}>
@@ -28,6 +32,8 @@ class Experience extends Component {
             </Badge>
           );
         });
+
+        // Use the `icon` property dynamically
         return (
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
@@ -37,7 +43,7 @@ class Experience extends Component {
               color: "#fff",
               textAlign: "center",
             }}
-            icon={<i className="fab fa-angular experience-icon"></i>}
+            icon={<i className={`experience-icon ${work.icon}`}></i>} // Dynamically assign the icon
             key={i}
           >
             <div style={{ textAlign: "left", marginBottom: "4px" }}>
